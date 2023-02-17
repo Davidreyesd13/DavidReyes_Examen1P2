@@ -1,3 +1,6 @@
+
+import javax.swing.ButtonModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,6 +17,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -25,16 +29,222 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JF_CRUD = new javax.swing.JFrame();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jt_ip = new javax.swing.JTextField();
+        jt_mask = new javax.swing.JTextField();
+        jt_host = new javax.swing.JTextField();
+        jr_lap = new javax.swing.JRadioButton();
+        jr_desk = new javax.swing.JRadioButton();
+        jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        JF_Lap = new javax.swing.JFrame();
+        JF_Desk = new javax.swing.JFrame();
+        bg_tipopc = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
+        JB_CRUD = new javax.swing.JButton();
+        JB_Simular = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        JF_CRUD.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setText("IP:");
+
+        jLabel4.setText("Mask:");
+
+        jLabel5.setText("Hostname:");
+
+        bg_tipopc.add(jr_lap);
+        jr_lap.setText("Laptop");
+
+        bg_tipopc.add(jr_desk);
+        jr_desk.setText("Escritorio");
+
+        jLabel6.setText("Tipo");
+
+        jButton1.setText("Agregar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jr_lap, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jr_desk, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jt_ip)
+                                .addComponent(jt_mask)
+                                .addComponent(jt_host, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(101, 101, 101)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(449, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jt_ip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jt_mask, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jt_host, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jr_lap)
+                    .addComponent(jr_desk)
+                    .addComponent(jLabel6))
+                .addGap(26, 26, 26)
+                .addComponent(jButton1)
+                .addContainerGap(303, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Agregar", jPanel2);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 780, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 539, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Listar", jPanel3);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(737, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel2)
+                .addContainerGap(524, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Eliminar", jPanel4);
+
+        JF_CRUD.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 570));
+
+        javax.swing.GroupLayout JF_LapLayout = new javax.swing.GroupLayout(JF_Lap.getContentPane());
+        JF_Lap.getContentPane().setLayout(JF_LapLayout);
+        JF_LapLayout.setHorizontalGroup(
+            JF_LapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        JF_LapLayout.setVerticalGroup(
+            JF_LapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout JF_DeskLayout = new javax.swing.GroupLayout(JF_Desk.getContentPane());
+        JF_Desk.getContentPane().setLayout(JF_DeskLayout);
+        JF_DeskLayout.setHorizontalGroup(
+            JF_DeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        JF_DeskLayout.setVerticalGroup(
+            JF_DeskLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        JB_CRUD.setBackground(new java.awt.Color(255, 140, 84));
+        JB_CRUD.setFont(new java.awt.Font("Cambria", 3, 18)); // NOI18N
+        JB_CRUD.setForeground(new java.awt.Color(255, 255, 255));
+        JB_CRUD.setText("CRUD");
+        JB_CRUD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_CRUDMouseClicked(evt);
+            }
+        });
+        jPanel1.add(JB_CRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 200, -1));
+
+        JB_Simular.setBackground(new java.awt.Color(255, 140, 84));
+        JB_Simular.setFont(new java.awt.Font("Cambria", 3, 18)); // NOI18N
+        JB_Simular.setForeground(new java.awt.Color(255, 255, 255));
+        JB_Simular.setText("Simular");
+        JB_Simular.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_SimularMouseClicked(evt);
+            }
+        });
+        jPanel1.add(JB_Simular, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 200, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Redes_neuronales_foto.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 480));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JB_CRUDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_CRUDMouseClicked
+        // TODO add your handling code here:
+        JF_CRUD.setLocationRelativeTo(null);
+        JF_CRUD.setVisible(true);
+        JF_CRUD.setSize(359, 394);
+    }//GEN-LAST:event_JB_CRUDMouseClicked
+
+    private void JB_SimularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_SimularMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_JB_SimularMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        if(jr_lap.isSelected()){
+            JF_Lap.setVisible(true);
+            JF_Lap.setLocationRelativeTo(this);
+            
+        }else{
+           JF_Desk.setVisible(true);
+            JF_Desk.setLocationRelativeTo(this); 
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -72,6 +282,28 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_CRUD;
+    private javax.swing.JButton JB_Simular;
+    private javax.swing.JFrame JF_CRUD;
+    private javax.swing.JFrame JF_Desk;
+    private javax.swing.JFrame JF_Lap;
+    private javax.swing.ButtonGroup bg_tipopc;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JRadioButton jr_desk;
+    private javax.swing.JRadioButton jr_lap;
+    private javax.swing.JTextField jt_host;
+    private javax.swing.JTextField jt_ip;
+    private javax.swing.JTextField jt_mask;
     // End of variables declaration//GEN-END:variables
 }

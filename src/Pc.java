@@ -38,12 +38,12 @@ public class Pc {
         this.hostname = hostname;
     }
 
-    @Override
-    public String toString() {
-        return "Pc" + "ip=" + ip + ", mascara=" + mascara + ", hostname=" + hostname ;
+    
+    public String toStringp() {
+        return "Pc" + "ip= " + ip + ", mascara= " + mascara + ", hostname= " + hostname ;
     }
 
-    public String toStringShow() {
+    public String toStringShowp() {
         return "IP: " + ip + "\n Mascara:" + mascara + "\n Hostname: " + hostname + "\n";
     }
 

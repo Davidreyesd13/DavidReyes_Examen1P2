@@ -51,10 +51,10 @@ public class Escritorio extends Pc {
 
     @Override
     public String toString() {
-        return "Escritorio " + "ram=" + ram + ", almacenamiento=" + almacenamiento + ", hard=" + hard + ", grafica=" + grafica + '}';
+        return " Escritorio " + "ram=" + ram + ", almacenamiento=" + almacenamiento + ", hard=" + hard + ", grafica=" + grafica;
     }
 
-    @Override
+    
     public String toStringShow() {
         return "RAM: " + ram + "\n Almacenamiento: " + almacenamiento + "\nDisco Duro: " + hard + "\n Grafica=" + grafica;
     }

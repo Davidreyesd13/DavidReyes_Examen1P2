@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.ButtonModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -20,6 +21,7 @@ public class Principal extends javax.swing.JFrame {
      */
     ArrayList<Pc> list = new ArrayList();
     int cont = 0;
+    String mask="255.255.255.";
 
     public Principal() {
         initComponents();
@@ -282,9 +284,6 @@ public class Principal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jb_AgregarlapMouseClicked(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jb_AgregarlapMouseEntered(evt);
-            }
         });
 
         bg_rgb.add(jrl_si);
@@ -474,7 +473,16 @@ public class Principal extends javax.swing.JFrame {
 
     private void JB_SimularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_SimularMouseClicked
         // TODO add your handling code here:
+        Scanner l = new Scanner(System.in);
         this.setVisible(false);
+        System.out.println("Ingrese la ip");
+        String ip= l.next();
+        for (int i = 0; i < list.size(); i++) {
+            if (ip.equals(list.get(i).getIp())) {
+                i=list.size();
+                
+            }
+        }
     }//GEN-LAST:event_JB_SimularMouseClicked
 
     private void jb_siguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_siguienteMouseClicked
@@ -502,7 +510,15 @@ public class Principal extends javax.swing.JFrame {
 
     private void jb_AgregarlapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_AgregarlapMouseClicked
         // TODO add your handling code here:
-
+        mask+=jt_mask.getText();
+        if (jrl_si.isSelected()) {
+            
+            list.add(new Laptop(jt_marca.getText(), jt_pantalla.getText(), true, jt_ip.getText(), mask, jt_host.getText()+"#")); 
+            JF_Lap.setVisible(false);
+        } else {
+            list.add(new Laptop(jt_marca.getText(), jt_pantalla.getText(), true, jt_ip.getText(), mask, jt_host.getText()+"#"));
+            JF_Lap.setVisible(false);
+        }
     }//GEN-LAST:event_jb_AgregarlapMouseClicked
 
     private void JB_CRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CRUDActionPerformed
@@ -517,7 +533,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         String listar = "";
         for (Pc pc : list) {
-            listar+=list.indexOf(pc)+" "+pc.toStringp();
+            listar+=list.indexOf(pc)+" "+pc.toStringp()+" "+pc;
         }
         jt_listar.setText(listar);
     }//GEN-LAST:event_jbListarMouseClicked
@@ -532,30 +548,15 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_JbEliminarMouseClicked
 
-    private void jb_AgregarlapMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_AgregarlapMouseEntered
-        // Crear Laptop
-        if (jrl_si.isSelected()) {
-            list.add(new Laptop(jt_marca.getText(), jt_pantalla.getText(), true, jt_ip.getText(), jt_mask.getText(), jt_host.getText()));
-            JF_Lap.setVisible(false);
-        } else {
-            list.add(new Laptop(jt_marca.getText(), jt_pantalla.getText(), false, jt_ip.getText(), jt_mask.getText(), jt_host.getText()));
-            JF_Lap.setVisible(false);
-        }
-        jt_marca.setText("");
-        jt_pantalla.setText("");
-        jt_ip.setText("");
-        jt_host.setText("");
-        jt_mask.setText("");
-        JOptionPane.showMessageDialog(null, "Agregado con exito");
-    }//GEN-LAST:event_jb_AgregarlapMouseEntered
-
     private void JB_AgregardeskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_AgregardeskMouseClicked
         // Crear Escritorio
+        mask+=jt_mask.getText();
         if (jrd_si.isSelected()) {
-            list.add(new Escritorio((int) Integer.parseInt(jt_ram.getText()), (int) Integer.parseInt(jt_alma.getText()), jt_tipohard.getText(), true, jt_ip.getText(), jt_mask.getText(), jt_host.getText()));
+            
+            list.add(new Escritorio((int) Integer.parseInt(jt_ram.getText()), (int) Integer.parseInt(jt_alma.getText()), jt_tipohard.getText(), true, jt_ip.getText(), mask, jt_host.getText()));
             JF_Desk.setVisible(false);
         } else {
-            list.add(new Escritorio((int) Integer.parseInt(jt_ram.getText()), (int) Integer.parseInt(jt_alma.getText()), jt_tipohard.getText(), false, jt_ip.getText(), jt_mask.getText(), jt_host.getText()));
+            list.add(new Escritorio((int) Integer.parseInt(jt_ram.getText()), (int) Integer.parseInt(jt_alma.getText()), jt_tipohard.getText(), false, jt_ip.getText(), mask, jt_host.getText()));
             JF_Desk.setVisible(false);
         }
         jt_alma.setText("");
@@ -571,7 +572,7 @@ public class Principal extends javax.swing.JFrame {
         String listar = "";
         for (Pc object : list) {
 
-            listar += "" + list.indexOf(object) + " " + object.toStringp();
+            listar += "" + list.indexOf(object) + " " + object.toStringp()+" "+object;
 
         }
         jt_eliminar.setText(listar);

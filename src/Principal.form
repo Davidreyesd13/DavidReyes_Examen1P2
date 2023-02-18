@@ -410,7 +410,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_AgregarlapMouseClicked"/>
-            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_AgregarlapMouseEntered"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jrl_si">

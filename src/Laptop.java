@@ -39,7 +39,12 @@ public class Laptop extends Pc{
 
     @Override
     public String toString() {
-        return "Laptop " + "\n Marca: " + marca + "\nPantalla: " + pantalla + "\nRGB: " + luz;
+        return "Laptop " + "marca=" + marca + ", pantalla=" + pantalla + ", luz=" + luz ;
+    }
+    
+    @Override
+    public String toStringShow() {
+        return  "Marca: " + marca + "\nPantalla: " + pantalla + "\nRGB: " + luz;
     }
  
 }

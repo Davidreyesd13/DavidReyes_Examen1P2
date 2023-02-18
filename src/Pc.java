@@ -1,5 +1,6 @@
 
 public class Pc {
+
     String ip;
     String mascara;
     String hostname;
@@ -39,7 +40,11 @@ public class Pc {
 
     @Override
     public String toString() {
-        return "Pc: " + "IP: " + ip + "\n Mascara:" + mascara + "\n Hostname: " + hostname +"\n";
+        return "Pc" + "ip=" + ip + ", mascara=" + mascara + ", hostname=" + hostname ;
     }
-    
+
+    public String toStringShow() {
+        return "IP: " + ip + "\n Mascara:" + mascara + "\n Hostname: " + hostname + "\n";
+    }
+
 }

@@ -21,7 +21,7 @@ public class Principal extends javax.swing.JFrame {
      */
     ArrayList<Pc> list = new ArrayList();
     int cont = 0;
-    String mask="255.255.255.";
+    
 
     public Principal() {
         initComponents();
@@ -473,16 +473,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void JB_SimularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_SimularMouseClicked
         // TODO add your handling code here:
-        Scanner l = new Scanner(System.in);
+
         this.setVisible(false);
-        System.out.println("Ingrese la ip");
-        String ip= l.next();
-        for (int i = 0; i < list.size(); i++) {
-            if (ip.equals(list.get(i).getIp())) {
-                i=list.size();
-                
-            }
-        }
+        ping();
     }//GEN-LAST:event_JB_SimularMouseClicked
 
     private void jb_siguienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_siguienteMouseClicked
@@ -509,16 +502,23 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_siguienteMouseClicked
 
     private void jb_AgregarlapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_AgregarlapMouseClicked
-        // TODO add your handling code here:
-        mask+=jt_mask.getText();
+        // agregar lap
+        String mask ="255.255.255."+ jt_mask.getText();
         if (jrl_si.isSelected()) {
-            
-            list.add(new Laptop(jt_marca.getText(), jt_pantalla.getText(), true, jt_ip.getText(), mask, jt_host.getText()+"#")); 
+
+            list.add(new Laptop(jt_marca.getText(), jt_pantalla.getText(), true, jt_ip.getText(), mask, jt_host.getText() + "#"));
             JF_Lap.setVisible(false);
         } else {
-            list.add(new Laptop(jt_marca.getText(), jt_pantalla.getText(), true, jt_ip.getText(), mask, jt_host.getText()+"#"));
+            list.add(new Laptop(jt_marca.getText(), jt_pantalla.getText(), true, jt_ip.getText(), mask, jt_host.getText() + "#"));
             JF_Lap.setVisible(false);
         }
+        jt_marca.setText("");
+        jt_pantalla.setText("");
+        jt_ip.setText("");
+        jt_host.setText("");
+        jt_mask.setText("");
+        JOptionPane.showMessageDialog(null, "Agregado con exito");
+        cont = 0;
     }//GEN-LAST:event_jb_AgregarlapMouseClicked
 
     private void JB_CRUDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_CRUDActionPerformed
@@ -533,7 +533,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         String listar = "";
         for (Pc pc : list) {
-            listar+=list.indexOf(pc)+" "+pc.toStringp()+" "+pc;
+            listar += list.indexOf(pc) + " " + pc.toStringp() + " " + pc+"\n";
         }
         jt_listar.setText(listar);
     }//GEN-LAST:event_jbListarMouseClicked
@@ -550,9 +550,9 @@ public class Principal extends javax.swing.JFrame {
 
     private void JB_AgregardeskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_AgregardeskMouseClicked
         // Crear Escritorio
-        mask+=jt_mask.getText();
+        String mask ="255.255.255."+jt_mask.getText();
         if (jrd_si.isSelected()) {
-            
+
             list.add(new Escritorio((int) Integer.parseInt(jt_ram.getText()), (int) Integer.parseInt(jt_alma.getText()), jt_tipohard.getText(), true, jt_ip.getText(), mask, jt_host.getText()));
             JF_Desk.setVisible(false);
         } else {
@@ -565,6 +565,7 @@ public class Principal extends javax.swing.JFrame {
         jt_ip.setText("");
         jt_host.setText("");
         jt_mask.setText("");
+        cont = 0;
         JOptionPane.showMessageDialog(null, "Agregado con exito");
     }//GEN-LAST:event_JB_AgregardeskMouseClicked
 
@@ -572,7 +573,7 @@ public class Principal extends javax.swing.JFrame {
         String listar = "";
         for (Pc object : list) {
 
-            listar += "" + list.indexOf(object) + " " + object.toStringp()+" "+object;
+            listar += "" + list.indexOf(object) + " " + object.toStringp() + " " + object+"\n";
 
         }
         jt_eliminar.setText(listar);
@@ -667,4 +668,95 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jt_tipohard;
     private javax.swing.JTextField jtelim;
     // End of variables declaration//GEN-END:variables
+public void ping() {
+        Scanner l = new Scanner(System.in);
+        String[] a, b;
+        System.out.println("Ingrese la ip");
+        String ip = l.nextLine();
+        if (!list.isEmpty()) {
+            for (int i = 0; i < list.size(); i++) {
+                if (ip.equals(list.get(i).getIp())) {
+                    System.out.println(((Pc) list.get(i)).toStringShowp() + ((Laptop) list.get(i)).toStringShow());
+                    System.out.println("1.Ping\n2.Show\n3.Exit");
+                    int opcion = l.nextInt();
+                    switch (opcion) {
+                        case 1:
+                            System.out.println("Ingrese la ip de la pc con la que desea comunicarse");
+                            l.nextLine();
+                            ip = l.nextLine();
+                            System.out.println(list.get(i).getHostname() + "Ping_" + ip);
+                            a = list.get(i).getIp().split("\n.");
+                            b = ip.split("\n.");
+                            for (int j = 0; j < list.size(); j++) {
+
+                                if (ip.equals(list.get(j).getIp())) {
+
+                                    if (a[0].equals(b[0]) && a[1].equals(b[1]) && a[2].equals(b[2])) {
+                                        for (int f = 0; f < 4; f++) {
+                                            int decimal, decimalb;
+                                            decimal = Integer.parseInt(a[f]);
+                                            decimalb = Integer.parseInt(b[f]);
+                                            a[j] = Long.toBinaryString(decimal);
+                                            b[j] = Long.toBinaryString(decimalb);
+                                        }
+                                        if (a[0].equals(b[0]) && a[1].equals(b[1]) && a[2].equals(b[2])
+                                                && a[3].charAt(0) == b[3].charAt(0) && a[3].charAt(1) == b[3].charAt(1)) {
+                                            System.out.println("Pinging to" + ip + " With 32bits of data:");
+                                            for (int f = 0; f < 4; f++) {
+                                                System.out.println("Reply from" + ip + " bytes=32 time 37ms TTL=46");
+                                            }
+                                            System.out.println("Ping statistics for " + ip + ": \n"
+                                                    + "Packets: sent = 4, Received = 4, Lost=(0% loss)");
+                                            System.out.println(list.get(i).getHostname());
+                                            
+                                        } else if (a[0].equals(b[0]) && a[1].equals(b[1]) && a[2].equals(b[2])
+                                                && a[3].charAt(0) == b[3].charAt(0)) {
+                                            System.out.println("Pinging to" + ip + " With 32bits of data:");
+                                            for (int f = 0; f < 4; f++) {
+                                                System.out.println("Reply from" + ip + " destination host unreachable");
+                                            }
+                                            System.out.println("Ping statistics for " + ip + ": \n"
+                                                    + "Packets: sent = 4, Received = 0, Lost=4(100% loss)");
+                                            System.out.println(list.get(i).getHostname());
+                                            
+                                        } else {
+                                            System.out.println("Pinging to" + ip + " With 32bits of data:");
+                                            for (int f = 0; f < 4; f++) {
+                                                System.out.println("Request time out");
+                                            }
+                                            System.out.println("Ping statistics for " + ip + ": \n"
+                                                    + "Packets: sent = 4, Received = 0, Lost=4(100% loss)");
+                                            System.out.println(list.get(i).getHostname());
+                                            
+                                        }
+                                    }
+
+                                }
+
+                            }
+                            break;
+                        case 2:
+                            for (i = 0; i < list.size(); i++) {
+
+                                if (ip.equals(list.get(i).getIp())) {
+                                    System.out.println(((Pc) list.get(i)).toStringShowp() + ((Laptop) list.get(i)).toStringShow());
+                                }
+                            }
+                            break;
+
+                        case 3:
+                            this.setVisible(true);
+                            break;
+
+                    }
+                } else if (i == list.size() - 1) {
+                    System.out.println("Ip no encontrada");
+                    this.setVisible(true);
+                }
+            }
+        } else {
+            System.out.println("Arreglo vacio");
+            this.setVisible(true);
+        }
+    }
 }

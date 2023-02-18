@@ -56,7 +56,7 @@ public class Escritorio extends Pc {
 
     
     public String toStringShow() {
-        return "RAM: " + ram + "\n Almacenamiento: " + almacenamiento + "\nDisco Duro: " + hard + "\n Grafica=" + grafica;
+        return "RAM: " + ram + "\nAlmacenamiento: " + almacenamiento + "\nDisco Duro: " + hard + "\nGrafica=" + grafica;
     }
 
 }

@@ -4,7 +4,7 @@ public class Pc {
     String ip;
     String mascara;
     String hostname;
-
+    
     public Pc() {
     }
 
@@ -44,7 +44,7 @@ public class Pc {
     }
 
     public String toStringShowp() {
-        return "IP: " + ip + "\n Mascara:" + mascara + "\n Hostname: " + hostname + "\n";
+        return "IP: " + ip + "\nMascara:" + mascara + "\nHostname: " + hostname + "\n";
     }
-
+    
 }

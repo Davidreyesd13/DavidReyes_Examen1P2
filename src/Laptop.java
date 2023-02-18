@@ -43,6 +43,7 @@ public class Laptop extends Pc{
     }
     
     
+
     public String toStringShow() {
         return   "Marca: " + marca + "\nPantalla: " + pantalla + "\nRGB: " + luz;
     }
